@@ -1,0 +1,20 @@
+学習したこと
+
+canvas element　デフォルトの大きさは300*150pxである。
+
+script src="./app.js"の場所を呼び出すエレメントの後にしないとdocument.getElementByIdなどが効かない。
+解決策：</body>の直前にすると安全。
+
+あるいはHTMLファイルの読み込みが完了してから実行させる。
+window.addEventListner('load'){
+ //ここでdocument.getElementByIdを使った内容を書く
+}
+
+document.getElementsByIdにしてエラー発生。Element単数！
+
+マウスの位置から座標を調べるのに際して参考にしたサイト
+https://gray-code.com/javascript/get-mouse-cursor-position-coordinate/
+
+CORS policyにひっかっかってgetImageDataが使えなかった際、参考にしたサイト
+https://note.affi-sapo-sv.com/js-canvas-securityerror.php
+＊http-serverをyarn addで入れて、このサーバーを立ち上げて、ファイルを開くと大丈夫。
