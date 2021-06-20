@@ -67,6 +67,7 @@ function renderLocalImage(e) {
     //読み込んだファイルのsrcが得られるメソッド、reader.resultを使う。
     img.src = reader.result;
     img.onload = function () {
+      context2.clearRect(0, 0, canvas2.width, canvas2.height);
       context2.drawImage(img, 0, 0, 400, img.height * (400 / img.width));
     };
   };
@@ -76,11 +77,22 @@ function renderLocalImage(e) {
 //ファイルが指定されたらrenderLocalImageを実行させる。
 file.addEventListener("change", renderLocalImage, false);
 
+let rgb = document.getElementById("rgb");
+
 //Get the coordinates and imageData of click location in canvas2
-canvas2.addEventListener("click", (event) => {
+canvas2.addEventListener("mousemove", (event) => {
+  let x = event.offsetX;
+  let y = event.offsetY;
+  let imageData = context2.getImageData(x, y, 1, 1);
+  let data = imageData.data;
+  rgb.innerHTML = `${data[0]}, ${data[1]}, ${data[2]}`;
+  rgb.style.background = `rgba(${data[0]}, ${data[1]}, ${data[2]}`;
+});
+
+canvas2.addEventListener("click", (event)=>{
   let x = event.offsetX;
   let y = event.offsetY;
   let imageData = context2.getImageData(x, y, 1, 1);
   let data = imageData.data;
   console.log(data);
-});
+})
