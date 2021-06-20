@@ -18,3 +18,8 @@ https://gray-code.com/javascript/get-mouse-cursor-position-coordinate/
 CORS policyにひっかっかってgetImageDataが使えなかった際、参考にしたサイト
 https://note.affi-sapo-sv.com/js-canvas-securityerror.php
 ＊http-serverをyarn addで入れて、このサーバーを立ち上げて、ファイルを開くと大丈夫。
+
+
+canvasにプレビュー画像をレンダリングする方法
+参考サイト
+https://www.tam-tam.co.jp/tipsnote/javascript/post13538.html

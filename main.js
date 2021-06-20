@@ -36,7 +36,7 @@ const imageData = context.getImageData(0, 0, 1, 1);
 const data = imageData.data;
 console.log(data);
 
-//Get coordinates of the mouse. canvas works, but target doesn't.
+//Get coordinates of the mouse and get imageData of the coordinates. canvas works, but target doesn't.
 canvas.addEventListener("click", (event) => {
   let x = event.offsetX;
   let y = event.offsetY;
@@ -75,3 +75,12 @@ function renderLocalImage(e) {
 
 //ファイルが指定されたらrenderLocalImageを実行させる。
 file.addEventListener("change", renderLocalImage, false);
+
+//Get the coordinates and imageData of click location in canvas2
+canvas2.addEventListener("click", (event) => {
+  let x = event.offsetX;
+  let y = event.offsetY;
+  let imageData = context2.getImageData(x, y, 1, 1);
+  let data = imageData.data;
+  console.log(data);
+});
